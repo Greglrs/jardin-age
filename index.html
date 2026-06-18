@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jardin'Age - Un jardin, mille histoires à partager</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#5E8C61;
+    --primary-light:#eef4ef;
+    --secondary:#C97B63;
+    --light:#F5F1E8;
+    --dark:#2D3A2F;
+    --white:#ffffff;
+    --gray:#6c757d;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    line-height:1.6;
+    color:var(--dark);
+    background:white;
+    scroll-behavior: smooth;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+section{
+    padding:90px 0;
+}
+
+h1,h2,h3,h4{
+    line-height:1.2;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    color:var(--primary);
+}
+
+.section-title p{
+    color:var(--gray);
+    margin-top:10px;
+}
+
+/* HEADER & NAV */
+header {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* HERO */
+.hero{
+    min-height:75vh;
+    background: var(--light);
+    display:flex;
+    align-items:center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    right: -5%;
+    bottom: -10%;
+    width: 55%;
+    height: 120%;
+    background: url('input_file_0.png') no-repeat center right;
+    background-size: contain;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.hero-content{
+    max-width:650px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+    color: var(--dark);
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:var(--secondary);
+    color:white;
+    padding:15px 35px;
+    text-decoration:none;
+    border-radius:50px;
+    transition:.3s;
+    font-weight: 500;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow: 0 5px 15px rgba(201, 123, 99, 0.4);
+}
+
+/* STATS */
+.stats{
+    background:var(--primary);
+    color:white;
+    padding: 50px 0;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+    text-align:center;
+}
+
+.stat h3{
+    font-size:3rem;
+}
+
+.stat p{
+    opacity:.9;
+}
+
+/* CARDS WITHOUT IMAGES (CLEAN & MINIMALIST) */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+    transition:.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content {
+    padding:40px;
+    flex-grow: 1;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card h3{
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+/* PROJECT */
+.project{
+    background:var(--light);
+}
+
+.project-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.project-item{
+    background:white;
+    padding:20px;
+    border-left:5px solid var(--primary);
+    border-radius:8px;
+    font-weight: 500;
+}
+
+/* VISUALISATION AMÉNAGEMENT & CARTES */
+.visualisation-block {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.main-plan-img {
+    width: 100%;
+    max-width: 950px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.maps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.map-card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.map-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* TIMELINE */
+.timeline{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:0;
+    width:4px;
+    height:100%;
+    background:var(--primary);
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    width:50%;
+    padding:20px 40px;
+    position:relative;
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    left:50%;
+}
+
+.timeline-item::before{
+    content:'';
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:var(--secondary);
+    border-radius:50%;
+    top:25px;
+}
+
+.timeline-item:nth-child(odd)::before{
+    right:-11px;
+}
+
+.timeline-item:nth-child(even)::before{
+    left:-7px;
+}
+
+.timeline-box{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* TEAM */
+.team{
+    background:var(--light);
+}
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.member{
+    background:white;
+    padding:35px 25px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.04);
+}
+
+.member-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid var(--primary-light);
+    background-color: var(--light);
+}
+
+.member h4{
+    color:var(--primary);
+    margin-bottom:5px;
+}
+
+.member-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-bottom: 8px;
+}
+
+.member-desc {
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
+/* CTA */
+.cta{
+    background: var(--dark);
+    color:white;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.cta p{
+    max-width:700px;
+    margin:auto;
+    margin-bottom:30px;
+}
+
+/* FOOTER */
+footer{
+    background:#233025;
+    color:white;
+    text-align:center;
+    padding:60px 20px 40px;
+}
+
+footer a{
+    color:white;
+    text-decoration:none;
+}
+
+footer a:hover {
+    color: var(--secondary);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero h1{
+    font-size:2.8rem;
+}
+
+.hero::after {
+    display: none;
+}
+
+.section-title h2{
+    font-size:2rem;
+}
+
+.nav-links {
+    display: none;
+}
+
+.maps-grid {
+    grid-template-columns: 1fr;
+}
+
+.timeline::before{
+    left:20px;
+}
+
+.timeline-item,
+.timeline-item:nth-child(even),
+.timeline-item:nth-child(odd){
+    width:100%;
+    left:0;
+    text-align:left;
+    padding-left:60px;
+    padding-right:10px;
+}
+
+.timeline-item::before,
+.timeline-item:nth-child(odd)::before,
+.timeline-item:nth-child(even)::before{
+    left:11px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header>
+    <div class="container navbar">
+        <div class="logo-block">
+            <img src="input_file_1.png" alt="Blason" class="logo-img">
+            <a href="#" class="logo">Jardin'Age</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#concept">Concept</a></li>
+            <li><a href="#amenagement">Aménagement</a></li>
+            <li><a href="#projet">Objectifs</a></li>
+            <li><a href="#beneficiaires">Publics</a></li>
+            <li><a href="#equipe">L'Équipe</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>🌱 Jardin'Age</h1>
+            <p>
+                Un jardin, mille histoires à partager.
+                Un projet intergénérationnel visant à transformer une friche
+                communale en un lieu de transmission, de biodiversité et de
+                solidarité.
+            </p>
+            <a href="#amenagement" class="btn">Visualiser le projet</a>
+        </div>
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat">
+                <h3>1 ha</h3>
+                <p>de friche valorisée</p>
+            </div>
+
+            <div class="stat">
+                <h3>2027</h3>
+                <p>Ouverture prévue (Mai)</p>
+            </div>
+
+            <div class="stat">
+                <h3>100%</h3>
+                <p>Accessible PMR</p>
+            </div>
+
+            <div class="stat">
+                <h3>4</h3>
+                <p>Publics bénéficiaires</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTEXTE -->
+<section id="concept">
+    <div class="container">
+        <div class="section-title">
+            <h2>Pourquoi Jardin'Age ?</h2>
+            <p>Répondre au manque de liens intergénérationnels sur le territoire.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>🤝 Transmission</h3>
+                    <p>
+                        Permettre aux seniors de transmettre leurs savoir-faire
+                        aux jeunes générations à travers le jardinage et les ateliers.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>🌿 Biodiversité</h3>
+                    <p>
+                        Sensibiliser les habitants à la nature,
+                        aux cycles du vivant et aux pratiques écologiques.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>🏘️ Cohésion sociale</h3>
+                    <p>
+                        Créer un lieu fédérateur favorisant les rencontres,
+                        les échanges et l'engagement citoyen.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AMÉNAGEMENT & CARTES DU DOCUMENT -->
+<section class="project" id="amenagement">
+    <div class="container">
+        <div class="section-title">
+            <h2>Périmètre d'Aménagement</h2>
+            <p>Découvrez la modélisation et la localisation de la parcelle retenue.</p>
+        </div>
+
+        <div class="visualisation-block">
+            <h3>Visualisation de la parcelle aménagée</h3>
+            <img src="input_file_11.png" alt="Plan détaillé d'aménagement Jardin'Age" class="main-plan-img">
+        </div>
+
+        <div class="maps-grid">
+            <div class="map-card">
+                <h3>Localisation globale</h3>
+                <img src="input_file_12.png" alt="Vue satellite de la parcelle à Gizac">
+            </div>
+            <div class="map-card">
+                <h3>Vue aérienne de la friche</h3>
+                <img src="input_file_13.png" alt="Vue aérienne oblique de la friche industrielle">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OBJECTIFS -->
+<section id="projet">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Les objectifs du projet</h2>
+            <p>Faire pousser bien plus que des légumes.</p>
+        </div>
+
+        <div class="project-list">
+            <div class="project-item">🌱 Éducation à la biodiversité et aux gestes écologiques.</div>
+            <div class="project-item">🤝 Création de liens intergénérationnels durables.</div>
+            <div class="project-item">🐝 Protection et développement de la faune et de la flore.</div>
+            <div class="project-item">❤️ Lutte contre l'isolement des seniors.</div>
+            <div class="project-item">👨‍🌾 Ateliers pédagogiques pour les enfants.</div>
+            <div class="project-item">🛠️ Chantiers d'insertion et engagement citoyen.</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- BENEFICIAIRES (AVEC ACCESSIBILITÉ EN EXEMPLE IMAGÉ) -->
+<section class="project" id="beneficiaires">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Les bénéficiaires</h2>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>👵 Seniors EHPAD</h3>
+                    <p>
+                        Maintien de l'activité cognitive, Proximité avec l'EHPAD Saint-Frédéric Cauet, 
+                        transmission des savoirs horticoles et lutte contre l'isolement.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>👧 Jeunesse</h3>
+                    <p>
+                        Découverte du jardinage, apprentissage écologique pour les écoliers de Gizac 
+                        et reconnexion à la nature.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>🏘️ Associations</h3>
+                    <p>
+                        Organisation d'événements, animation locale et dynamisation du territoire.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h3>🔨 Insertion</h3>
+                    <p>
+                        Chantiers solidaires, chantiers citoyen jeunesse et accompagnement vers l'emploi.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Illustration technique Ergonomie / PMR extraite du PPT -->
+        <div class="visualisation-block" style="margin-top:60px; margin-bottom:0;">
+            <h3>Focus : Ergonomie & Accessibilité (Bacs surélevés)</h3>
+            <img src="input_file_16.png" alt="Illustration de bac potager surélevé pour PMR" class="main-plan-img" style="max-width: 450px;">
+        </div>
+
+    </div>
+</section>
+
+<!-- ROADMAP -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Roadmap du projet</h2>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-box">
+                    <h3>T1 - Diagnostic</h3>
+                    <p>
+                        Études techniques approfondies, analyses de sol,
+                        accessibilité et viabilité.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-box">
+                    <h3>T2 - Travaux</h3>
+                    <p>
+                        Viabilisation initiale, clôture anti-intrusion,
+                        réseaux et rampes d'accès PMR.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-box">
+                    <h3>T3 - Co-construction</h3>
+                    <p>
+                        Ateliers participatifs intergénérationnels,
+                        rédaction de la charte citoyenne de co-usage.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-box">
+                    <h3>T4 - Inauguration</h3>
+                    <p>
+                        Grande inauguration festive, ateliers pédagogiques de rentrée 
+                        et mise en place des premiers semis.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- EQUIPE AVEC AVATARS OFFICIELS -->
+<section class="team" id="equipe">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>L'équipe projet</h2>
+        </div>
+
+        <div class="team-grid">
+
+            <div class="member">
+                <img src="input_file_8.png" alt="Pauline Wailly" class="member-img">
+                <h4>Pauline Wailly</h4>
+                <p class="member-title">Coordinatrice au CCAS</p>
+                <p class="member-desc">Pilotage de la transition sociale & cohésion</p>
+            </div>
+
+            <div class="member">
+                <img src="input_file_7.png" alt="Pierre Hervy" class="member-img">
+                <h4>Pierre Hervy</h4>
+                <p class="member-title">Responsable Espaces Verts</p>
+                <p class="member-desc">Ingénierie technique végétale & sol</p>
+            </div>
+
+            <div class="member">
+                <img src="input_file_9.png" alt="Christophe Iseli" class="member-img">
+                <h4>Christophe Iseli</h4>
+                <p class="member-title">Coordinateur Petite Enfance</p>
+                <p class="member-desc">Intégration pédagogique & ateliers jeunesse</p>
+            </div>
+
+            <div class="member">
+                <img src="input_file_10.png" alt="Grégoire Larrans" class="member-img">
+                <h4>Larrans Grégoire</h4>
+                <p class="member-title">Responsable Service EHPAD</p>
+                <p class="member-desc">Coordination seniors, mobilité & activités</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <div class="container">
+        <h2>Rejoignez l'aventure Jardin'Age</h2>
+        <p>
+            Habitants, associations, écoles, bénévoles ou partenaires :
+            ensemble, cultivons le lien social et la biodiversité.
+        </p>
+
+        <a href="mailto:contact@gizac.fr" class="btn">
+            Participer au projet
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h3>🌱 Jardin'Age</h3>
+    <p>Un jardin, mille histoires à partager</p>
+    <br>
+    <p>
+        Contact :
+        <a href="mailto:contact@gizac.fr">contact@gizac.fr</a>
+    </p>
+    <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.7;">Ouverture prévisionnelle : Mai 2027</p>
+</footer>
+
+</body>
+</html>
